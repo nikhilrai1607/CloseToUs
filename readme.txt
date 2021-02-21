@@ -28,6 +28,7 @@ Information:
 4. implementation.py gives example and implements the class.
 
 5. There are 2 implementations for the class:
+  (As it wasnt mentioned on the test file, if input file is local or url based):
   - Local File Based
     The program will fetch data from a local file.
   - URL based
@@ -60,3 +61,7 @@ Problem statement is divided in few sections:
    Range calculated
    get sorted list as result
 - Write the result to a file
+
+OUTPUT:
+- No info provided for the output format
+- Hence it is kept consistent as input i.e, JSON format.
