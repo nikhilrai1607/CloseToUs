@@ -29,7 +29,7 @@ Information:
 
 5. There are 2 implementations for the class:
   (As it wasnt mentioned on the test file, if input file is local or url based):
-  - Local File Based
+  - Local File Based (Default)
     The program will fetch data from a local file.
   - URL based
     A url can be supplied, with flag "localFile=False" (Example in implementation.py)
@@ -49,6 +49,11 @@ Initializing class takes 3 arguments:
  - filename: can be local path/ URL 
  - localFile: bool flag True if file is local/ False if file is through a URL
  - Outfile: filename for output file.
+ 
+ To test the code yourself manually:
+ - Modify the code given in implementation.py. Or import and use based on example given in implementation.py.
+ - Make sure to set localFile as False if accessing txt file through URL.
+ - implementation.py has a commented code for local file. Uncomment and check if needed.
 
 Problem statement is divided in few sections:
 
@@ -65,3 +70,4 @@ Problem statement is divided in few sections:
 OUTPUT:
 - No info provided for the output format
 - Hence it is kept consistent as input i.e, JSON format.
+- output.txt is available as result of this test.
