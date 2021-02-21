@@ -1,8 +1,7 @@
 
 Installation:
 
-git clone https://github.com/nikhilrai1607/CloseToUs/tree/master
-branch master
+git clone https://github.com/nikhilrai1607/CloseToUs.git
 
 Version: Python 3
 No third party modules used.

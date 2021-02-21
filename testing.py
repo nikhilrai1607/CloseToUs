@@ -22,9 +22,10 @@ class TestFileRead(unittest.TestCase):
         Test to verify local file read is working
         """
         cl = CloseToUs(TEST_LOCAL_FILE,localFile=False)
-        result = cl.read_file()
-        print("local file as input and local flag set to false returns success=False")
-        self.assertFalse(result['success'])
+        with self.assertRaises(SystemExit) as cm:
+            result = cl.read_file()
+            print("local file as input and local flag set to false returns success=False")
+        #self.assertFalse(result['success'])
     
     def test_file_from_url(self):
         """
@@ -42,21 +43,24 @@ class TestFileRead(unittest.TestCase):
         """
         Test read funtion should fail if url given with no local flag
         """
-        cl = CloseToUs(
-            filename=TEST_URL
-            )
-        result = cl.read_file()
-        print("funtion should fail if url given with localFile=True then success=False")
-        self.assertFalse(result['success'])
+        with self.assertRaises(SystemExit) as cm:
+            cl = CloseToUs(
+                filename=TEST_URL
+                )
+            result = cl.read_file()
+            print("funtion should fail if url given with localFile=True then success=False")
+        #self.assertFalse(result['success'])
 
     def test_file_with_empty_filename(self):
         """
         Test to verify local file read is working
         """
-        cl = CloseToUs("")
-        result = cl.read_file()
-        print("If input filename is '' return success=False")
-        self.assertFalse(result['success'])
+        with self.assertRaises(SystemExit) as cm:
+            cl = CloseToUs("")
+            
+            result = cl.read_file()
+            print("If input filename is '' return success=False")
+        #self.assertFalse(result['success'])
 
 
 class TestDecodeJson(unittest.TestCase):
@@ -158,9 +162,12 @@ class TestCalculations(unittest.TestCase):
         self.assertEqual(self.cl._inviting+self.cl._not_inviting+self.cl._invalid_json,32)
     
     def test_creates_output_file(self):
-        cl = CloseToUs(TEST_LOCAL_FILE,outfile='test_out.txt')
+        cl = CloseToUs(
+            filename=TEST_LOCAL_FILE,
+            outfile='test_out.txt'
+            )
         result = cl.run()
-        writit = cl.write_result(result)
+        
         print("test RUN function to create output file")
         self.assertTrue(path.exists('test_out.txt'))
         remove('test_out.txt')
