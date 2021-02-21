@@ -11,7 +11,7 @@ Steps:
 
 1. cd /to/path/downloaded/repo
 2. python3 -m unittest testing
-3. If all good! Output file is created "test_out.txt"
+3. If all good! Output file is created "test_out.txt" - This is Result
 4. python3 implementation.py
 5. open file mentioned on step 4 to configure and test.
 
@@ -19,7 +19,7 @@ Steps:
 Information:
 
 ** Function is console based
-** As pwe defined input: Code does NOT take any console input
+** As per defined input: Code does NOT take any console input
 ** Code will exit on error with appropriate message on console.
 
 1. All the functions can be tested.
@@ -42,10 +42,21 @@ Information:
 
 
 -------------------
-CLASS COnfig:
+CLASS Config:
 
 Initializing class takes 3 arguments:
  - filename: can be local path/ URL 
  - localFile: bool flag True if file is local/ False if file is through a URL
  - Outfile: filename for output file.
 
+Problem statement is divided in few sections:
+
+- Read file
+   From local path/ URL
+- Decode JSON
+   Makes sure, parsing line by line, that malformed json are IGNORED.
+- Calculate distance
+   Base formula applied
+   Range calculated
+   get sorted list as result
+- Write the result to a file
