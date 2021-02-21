@@ -11,8 +11,9 @@ Steps:
 
 1. cd /to/path/downloaded/repo
 2. python3 -m unittest testing
-3. If all good!
+3. If all good! Output file is created "test_out.txt"
 4. python3 implementation.py
+5. open file mentioned on step 4 to configure and test.
 
 -------------------
 Information:
@@ -24,7 +25,7 @@ Information:
 1. All the functions can be tested.
 2. test cases are in testing.py
 3. Main Class is CloseToUs.py
-4. implementation.py implements the class.
+4. implementation.py gives example and implements the class.
 
 5. There are 2 implementations for the class:
   - Local File Based
@@ -41,4 +42,10 @@ Information:
 
 
 -------------------
+CLASS COnfig:
+
+Initializing class takes 3 arguments:
+ - filename: can be local path/ URL 
+ - localFile: bool flag True if file is local/ False if file is through a URL
+ - Outfile: filename for output file.
 
