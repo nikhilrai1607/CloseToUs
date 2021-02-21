@@ -56,10 +56,12 @@ class CloseToUs():
                 return {'success': True, 'payload':self._file_content }
                 
             except:
-                error = 'Error reading the file. Make sure you provide correct path.'
+                error = 'Error reading the file. Make sure you provide correct path.'+self._filename
         else:
             error = 'No file available to read.'
-        return {'success': False, 'payload':error }
+        print(error)
+        exit()
+        #return {'success': False, 'payload':error }
         
     
     """
@@ -100,7 +102,9 @@ class CloseToUs():
             for ln in file_content:
                 self._file_content.append(ln.decode('utf-8'))
         else:
-            return {'success': False, 'payload': 'Error: Make sure to provide a URL to text file.'}
+            print('Error: Make sure to provide a URL to text file.')
+            exit()
+            #return {'success': False, 'payload': 'Error: Make sure to provide a URL to text file.'}
     
     """
     Function to decode json
@@ -176,7 +180,8 @@ class CloseToUs():
                 result.append(return_list[key])
             return result
         else:
-            return None
+            print("No customers in the range of 100km")
+            exit()
     
     def write_result(self,result):
         if len(result)> 0 and self._outfile is not None:
@@ -191,21 +196,29 @@ class CloseToUs():
                 print(json.dumps(l))
         else:
             print("No valid result to write.")
+            exit()
 
     """
     Returns None if closest_customer() fails.
     Output: sorted list or None
     """
     def run(self):
+        #read file
         read_file = self.read_file()
         if read_file['success']:
+            #On success: decode the json lines
             decode_json = self.decode_json()
             if decode_json['success']:
+                #on successful decode: find closes customers 
                 if len(self.customers) > 0:
-                    return self.closest_customer()
+                    result = self.closest_customer()
+                    #write result of sorted list to outfile
+                    if len(result)>0 and result is not None:
+                        self.write_result(result)
+
     
     def __init__(self,filename,localFile=True,outfile=None):
-        if filename and path.exists(filename):
+        if filename or (localFile and path.exists(filename)):
             self._filename = filename
             self._localFile = localFile
             self._outfile = outfile
