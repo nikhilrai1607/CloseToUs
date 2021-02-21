@@ -170,7 +170,6 @@ class TestCalculations(unittest.TestCase):
         
         print("test RUN function to create output file")
         self.assertTrue(path.exists('test_out.txt'))
-        remove('test_out.txt')
 
 
 if __name__ == '__main__':
